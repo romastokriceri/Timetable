@@ -1,2 +1,2 @@
-# Study
-For short works and entertainment
+# Timetable 
+For my groupmates
