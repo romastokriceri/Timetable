@@ -91,3 +91,7 @@ border: 1px solid #333;
 a{
 color: rgb(45, 181, 124);
 }
+
+a:hover{
+   cursor: pointer;
+}
