@@ -17,7 +17,8 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 /*--------------------*/
 
 :root{
-  --font-title-color: #fff;/* колір шрифту назви та днів тиждня */
+   --highlighted-text:#fff;
+  --font-title-color: rgba(255, 255, 255, 0.534);/* колір шрифту назви та днів тиждня */
  --bg-color: #f2f2f2;/* колір фону */
  --table-border-color:#333; /*колір фону заголовку*/
  --link-color:rgb(45, 181, 124);/* колір посилань */
@@ -30,24 +31,8 @@ body {
 
 header {
 	background-color: var(--table-border-color);
-	color: var(--font-title-color);
+	color: var(--highlighted-text);
 	padding: 10px;
-}
-
-nav ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-nav li {
-	display: inline-block;
-	margin-right: 20px;
-}
-
-nav li a {
-	color: var(--font-title-color);
-	text-decoration: none;
 }
 
 main {
@@ -84,19 +69,38 @@ table tr:nth-child(even) {
 
 footer {
 	background-color: var(--table-border-color);
-	color: var(--font-title-color);
 	padding: 15px;
 	text-align: center;
+   color: var(--highlighted-text);
 }
 
 .day{
 border: 1px solid var(--table-border-color);
   font-size: 30px;
+  color: var(--font-title-color);
 }
 
 a{
 color: var(--link-color);
 }
+
 a:hover{
    cursor: pointer;
 }
+nav  {
+   display: flex;
+      justify-content: space-between;
+      font-size: 25px;
+      color: var(--highlighted-text);
+}
+.weeklyValue{
+margin: auto;
+text-transform: uppercase;
+font-weight: bold;
+
+}
+.date-time{
+   font-size: 18px;
+display: grid;
+   grid-template-rows: auto auto;
+} 
