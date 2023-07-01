@@ -44,18 +44,14 @@ function setWeeklyValue() {
 
   // Виведення значення у відповідний блок
   if (isEven) {
-    weeklyValueElement.textContent = 'Парний ';
+    weeklyValueElement.textContent = 'Парний';
   } else {
-    weeklyValueElement.textContent = 'Непарний ';
+    weeklyValueElement.textContent = 'Непарний';
   }
 }
 
 // Виклик функції для встановлення значення
 setWeeklyValue();
-
-
-// Встановлюємо інтервал для оновлення значення поля кожний тиждень
-setInterval(updateWeeklyValue, 7 * 24 * 60 * 60 * 1000); // Оновлюємо кожні 7 днів
 
  // Функція для виведення часу
     function displayTime() {
@@ -75,6 +71,8 @@ setInterval(updateWeeklyValue, 7 * 24 * 60 * 60 * 1000); // Оновлюємо �
     function formatTimeElement(timeElement) {
       return timeElement < 10 ? '0' + timeElement : timeElement;
 
+     displayTime();
+
       // Функція для виведення дати
     }
     function displayDate() {
@@ -92,7 +90,6 @@ setInterval(updateWeeklyValue, 7 * 24 * 60 * 60 * 1000); // Оновлюємо �
       document.querySelector('.date').textContent = dateString;
     }
 
-   displayTime();
    displayDate();
 
     setInterval(displayTime, 1000);
