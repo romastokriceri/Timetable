@@ -1,6 +1,3 @@
-function getWeekNumbers(year) {
-  // Визначення дати 1 вересня заданого року
-  var septemberFirst = new Date(year, 8, 1); // Місяць вересень (індекс 8, оскільки індекси місяців починаються з 0)
 
 function getWeekNumbers(year) {
   // Визначення дати 1 вересня заданого року
@@ -47,9 +44,9 @@ function setWeeklyValue() {
 
   // Виведення значення у відповідний блок
   if (isEven) {
-    weeklyValueElement.textContent = 'Парний';
+    weeklyValueElement.textContent = 'Парний ';
   } else {
-    weeklyValueElement.textContent = 'Непарний';
+    weeklyValueElement.textContent = 'Непарний ';
   }
 }
 
@@ -57,6 +54,8 @@ function setWeeklyValue() {
 setWeeklyValue();
 
 
+// Встановлюємо інтервал для оновлення значення поля кожний тиждень
+setInterval(updateWeeklyValue, 7 * 24 * 60 * 60 * 1000); // Оновлюємо кожні 7 днів
 
  // Функція для виведення часу
     function displayTime() {
@@ -132,3 +131,5 @@ default:
     break;
 }
 
+
+// TODO: ЗРОБИ фу-цію, що пише який сьогодні тиждень, переробити ії так, щоб ця фун-ція показувала парний сьогодні тиждень чи ні та вважати тиждень де є 1 вересня та 1 березня непарними за замовчуванням
