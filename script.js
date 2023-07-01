@@ -1,21 +1,58 @@
 
-// Функція для оновлення значення поля
-function updateWeeklyValue() {
-  var currentDate = moment(); // Поточна дата та час
-   var septemberFirst = moment().startOf('year').month(8).date(1); // 1 вересня поточного року
-  var weekNumber = currentDate.diff(septemberFirst, 'weeks'); // Номер поточного тижня
-  var weeklyValueElement = document.querySelector('.weeklyValue'); // Елемент, який потрібно оновити
+function getWeekNumbers(year) {
+  // Визначення дати 1 вересня заданого року
+  var septemberFirst = new Date(year, 8, 1); // Місяць вересень (індекс 8, оскільки індекси місяців починаються з 0)
 
-  // Перевіряємо, чи номер тижня парний чи непарний
-  if (weekNumber % 2 === 0) {
-    weeklyValueElement.textContent = 'парне';
+  // Визначення номера тижня для 1 вересня
+  var septemberFirstWeek = getWeekNumber(septemberFirst);
+
+  // Визначення дати 1 березня заданого року
+  var marchFirst = new Date(year, 2, 1); // Місяць березень (індекс 2)
+
+  // Визначення номера тижня для 1 березня
+  var marchFirstWeek = getWeekNumber(marchFirst);
+
+  return {
+    septemberFirstWeek: septemberFirstWeek,
+    marchFirstWeek: marchFirstWeek
+  };
+}
+
+// Функція для отримання номера тижня
+function getWeekNumber(date) {
+  var d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+  var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+}
+
+function isEvenWeek(weekNumbers) {
+  if (weekNumbers.septemberFirstWeek % 2 === 0 || weekNumbers.marchFirstWeek % 2 === 0) {
+    return true;
   } else {
-    weeklyValueElement.textContent = 'непарне';
+    return false;
   }
 }
 
-// Викликаємо функцію для першого оновлення значення поля
-updateWeeklyValue();
+function setWeeklyValue() {
+  var year = new Date().getFullYear(); // Поточний рік
+  var weekNumbers = getWeekNumbers(year); // Отримання номерів тижнів для поточного року
+  var weeklyValueElement = document.querySelector('.weeklyValue'); // Елемент з класом "weeklyValue"
+
+  // Визначення, чи є поточний тиждень парним або непарним
+  var isEven = isEvenWeek(weekNumbers);
+
+  // Виведення значення у відповідний блок
+  if (isEven) {
+    weeklyValueElement.textContent = 'Парний ';
+  } else {
+    weeklyValueElement.textContent = 'Непарний ';
+  }
+}
+
+// Виклик функції для встановлення значення
+setWeeklyValue();
+
 
 // Встановлюємо інтервал для оновлення значення поля кожний тиждень
 setInterval(updateWeeklyValue, 7 * 24 * 60 * 60 * 1000); // Оновлюємо кожні 7 днів
@@ -37,7 +74,7 @@ setInterval(updateWeeklyValue, 7 * 24 * 60 * 60 * 1000); // Оновлюємо �
 
     function formatTimeElement(timeElement) {
       return timeElement < 10 ? '0' + timeElement : timeElement;
-      
+
       // Функція для виведення дати
     }
     function displayDate() {
@@ -54,7 +91,7 @@ setInterval(updateWeeklyValue, 7 * 24 * 60 * 60 * 1000); // Оновлюємо �
       var dateString = day + ':' + month + ':' + year + ',';
       document.querySelector('.date').textContent = dateString;
     }
-    
+
    displayTime();
    displayDate();
 
@@ -96,6 +133,3 @@ default:
 
 
 // TODO: ЗРОБИ фу-цію, що пише який сьогодні тиждень, переробити ії так, щоб ця фун-ція показувала парний сьогодні тиждень чи ні та вважати тиждень де є 1 вересня та 1 березня непарними за замовчуванням
-
-
-
