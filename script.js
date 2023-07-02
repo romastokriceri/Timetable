@@ -1,80 +1,40 @@
+function isEvenWeek(date) {
+  var currentDate = date || new Date();
+  var currentYear = currentDate.getFullYear();
+  var januaryFirst = new Date(currentYear, 0, 1);
+  var septemberFirst = new Date(currentYear, 8, 1);
+  var marchFirst = new Date(currentYear, 2, 1);
 
-function getWeekNumbers(year) {
-  // Визначення дати 1 вересня заданого року
-  var septemberFirst = new Date(year, 8, 1); // Місяць вересень (індекс 8, оскільки індекси місяців починаються з 0)
+  var firstWeekStart;
+  if (januaryFirst.getDay() <= 4) {
+    firstWeekStart = januaryFirst;
+  } else if (septemberFirst.getDay() <= 4) {
+    firstWeekStart = new Date(currentYear, 8, 8 - septemberFirst.getDay());
+  } else {
+    firstWeekStart = new Date(currentYear, 2, 8 - marchFirst.getDay());
+  }
 
-  // Визначення номера тижня для 1 вересня
-  var septemberFirstWeek = getWeekNumber(septemberFirst);
-
-  // Визначення дати 1 березня заданого року
-  var marchFirst = new Date(year, 2, 1); // Місяць березень (індекс 2)
-
-  // Визначення номера тижня для 1 березня
-  var marchFirstWeek = getWeekNumber(marchFirst);
+  var millisecondsPerWeek = 7 * 24 * 60 * 60 * 1000;
+  var weekNumber = Math.floor((currentDate - firstWeekStart) / millisecondsPerWeek) + 1;
 
   return {
-    septemberFirstWeek: septemberFirstWeek,
-    marchFirstWeek: marchFirstWeek
+    weekNumber: weekNumber,
+    isEven: weekNumber % 2 === 0
   };
 }
 
-// Функція для отримання номера тижня
-function getWeekNumber(date) {
-  var d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
-  d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
-  var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-  return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
-}
+// Отримуємо посилання на елемент з класом weeklyValue
+var weeklyValueElement = document.querySelector('.weeklyValue');
 
-function isEvenWeek(weekNumbers) {
-  if (weekNumbers.septemberFirstWeek % 2 === 0 || weekNumbers.marchFirstWeek % 2 === 0) {
-    return true;
-  } else {
-    return false;
-  }
-}
+// Отримуємо значення тижня та парності
+var weekInfo = isEvenWeek(new Date());
 
-function setWeeklyValue() {
-  var year = new Date().getFullYear(); // Поточний рік
-  var weekNumbers = getWeekNumbers(year); // Отримання номерів тижнів для поточного року
-  var weeklyValueElement = document.querySelector('.weeklyValue'); // Елемент з класом "weeklyValue"
-
-  // Визначення, чи є поточний тиждень парним або непарним
-  var isEven = isEvenWeek(weekNumbers);
-
-  // Виведення значення у відповідний блок
-  if (isEven) {
-    weeklyValueElement.textContent = 'Парний';
-  } else {
-    weeklyValueElement.textContent = 'Непарний';
-  }
-}
-
-// Виклик функції для встановлення значення
-setWeeklyValue();
-
- // Функція для виведення часу
-    function displayTime() {
-      var currentTime = new Date();
-      var hours = currentTime.getHours();
-      var minutes = currentTime.getMinutes();
-      var seconds = currentTime.getSeconds();
-
-      hours = formatTimeElement(hours);
-      minutes = formatTimeElement(minutes);
-      seconds = formatTimeElement(seconds);
-
-      var timeString = hours + ':' + minutes + ':' + seconds;
-      document.querySelector('.time').textContent = timeString;
-    }
-
-    function formatTimeElement(timeElement) {
-      return timeElement < 10 ? '0' + timeElement : timeElement;
-
-     displayTime();
+// Встановлюємо текстовий вміст елемента з номером тижня та парністю
+weeklyValueElement.textContent = weekInfo.weekNumber + ' ';
+weeklyValueElement.textContent += weekInfo.isEven ? 'Парний' : 'Непарний';
 
       // Функція для виведення дати
-    }
+   
     function displayDate() {
       var currentDate = new Date();
       var day = currentDate.getDate();
@@ -92,8 +52,28 @@ setWeeklyValue();
 
    displayDate();
 
-    setInterval(displayTime, 1000);
+function displayTime() {
+      var currentTime = new Date();
+      var hours = currentTime.getHours();
+      var minutes = currentTime.getMinutes();
+      var seconds = currentTime.getSeconds();
 
+      hours = formatTimeElement(hours);
+      minutes = formatTimeElement(minutes);
+      seconds = formatTimeElement(seconds);
+
+      var timeString = hours + ':' + minutes + ':' + seconds;
+      document.querySelector('.time').textContent = timeString;
+    }
+
+    function formatTimeElement(timeElement) {
+      return timeElement < 10 ? '0' + timeElement : timeElement;
+    }
+
+displayTime();
+
+    setInterval(displayTime, 1000);
+    
 var currentDate = new Date();
 var dayOfWeek = currentDate.getDay(); // Отримуємо день тижня (0 - неділя, 1 - понеділок, і т.д.)
 
