@@ -30,7 +30,7 @@ var weeklyValueElement = document.querySelector('.weeklyValue');
 var weekInfo = isEvenWeek(new Date());
 
 // Встановлюємо текстовий вміст елемента з номером тижня та парністю
-weeklyValueElement.textContent = weekInfo.weekNumber + ' ';
+// weeklyValueElement.textContent = weekInfo.weekNumber + ' '; ця строка надає номер тиждня
 weeklyValueElement.textContent += weekInfo.isEven ? 'Парний' : 'Непарний';
 
       // Функція для виведення дати
@@ -107,6 +107,3 @@ case 6:
 default:
     break;
 }
-
-
-// TODO: ЗРОБИ фу-цію, що пише який сьогодні тиждень, переробити ії так, щоб ця фун-ція показувала парний сьогодні тиждень чи ні та вважати тиждень де є 1 вересня та 1 березня непарними за замовчуванням
