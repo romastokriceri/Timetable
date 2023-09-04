@@ -31,10 +31,10 @@ var weekInfo = isEvenWeek(new Date());
 
 // Встановлюємо текстовий вміст елемента з номером тижня та парністю
 // weeklyValueElement.textContent = weekInfo.weekNumber + ' '; ця строка надає номер тиждня
-weeklyValueElement.textContent += weekInfo.isEven ? 'Парний' : 'Непарний';
+weeklyValueElement.textContent += weekInfo.isEven ? 'Непарний' : 'Парний';
 
       // Функція для виведення дати
-   
+
     function displayDate() {
       var currentDate = new Date();
       var day = currentDate.getDate();
@@ -73,7 +73,7 @@ function displayTime() {
 displayTime();
 
     setInterval(displayTime, 1000);
-    
+
 var currentDate = new Date();
 var dayOfWeek = currentDate.getDay(); // Отримуємо день тижня (0 - неділя, 1 - понеділок, і т.д.)
 
