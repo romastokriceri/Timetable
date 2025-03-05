@@ -1,97 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Розклад пар</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <title>Розклад пар</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<header>
-		<nav>
-   <div class="gap"></div>
-   <div class="weeklyValue"></div>
-<div class="date-time">
-   <div class="date"></div>
-   <div class="time"></div>
-</div>
-
-		</nav>
-	</header>
-	<main>
-		<h1>Розклад пар</h1>
-
-		<table>
-			<thead>
-				<tr class="day">
-					<th>Час</th>
-					<th></th>
-					<th class="Monday">Понеділок</th>
-					<th class="Tuesday">Вівторок</th>
-					<th class="Wednesday">Середа</th>
-					<th class="Thursday">Четвер</th>
-					<th class="Friday">П'ятниця</th>
-				</tr>
-			</thead>
-			<tbody>
-				<!-- Перша пара -->
-				<tr>
-					<td>8:00 <b>-</b><br>9:35</td>
-					<td>1</td>
-					<td>---</td>
-					<td><a href="#">Розробка клієнт-серверних<br>застосувань (лек.)</a></td>
-					<td><a href="https://bit.ly/hodovychenko_zoom" target="_blank">Нейромережеві<br>технології (лек.)</a></td>
-					<td>---</td>
-					<td><a href="https://bit.ly/hodovychenko_zoom" target="_blank">Нейромережеві<br>технології (лек.)</a></td>
-				</tr>
-				<!-- Друга пара -->
-				<tr>
-					<td>9:50 <b>-</b><br>11:25</td>
-					<td>2</td>
-					<td><a href="#">Проєктування<br>інформаційних систем (лек.)</a></td>
-					<td>
-						<a href="https://meet.google.com/hmt-fpdf-qci" target="_blank">Розробка клієнт-серверних<br>застосувань (лаб. неп.)</a><br>
-						<small>Узун Ілля Святославович<br><a href="https://t.me/+5fYIdW948mE5ZWQy">Телега</a></small>
-					</td>
-					<td><a href="#">Технології<br>розподілених систем (лек.)</a></td>
-					<td><a href="#">Тестування<br>ПЗ (лек.)</a></td>
-					<td><a href="#">Математичне<br>моделювання (лек.)</a></td>
-				</tr>
-				<!-- Третя пара -->
-				<tr>
-					<td>11:40 <b>-</b><br>13:15</td>
-					<td>3</td>
-					<td>
-						<a href="https://us02web.zoom.us/j/81545805486" target="_blank">Проєктування<br>інформаційних систем (лаб.)</a><br>
-						<small>Добришев Руслан Євгенович<br>
-						<a href="https://t.me/+URQnF8kLIcNhOTcy">Телега</a></small>
-					</td>
-					<td>
-						<a href="https://us05web.zoom.us/j/5244731377" target="_blank">Випадкові процеси (лаб.)</a><br>
-						<small>Востров В.Г<br>
-						Телефон: +380503168776</small>
-					</td>
-					<td>
-						<a href="https://us04web.zoom.us/j/8541830320" target="_blank">Технології<br>розподілених систем (лаб. неп.)</a><br>
-						<small>Грішин Максим<br>
-						<a href="https://t.me/+bUKsPQR7uYJhODgy">Група із дз</a></small>
-					</td>
-					<td>
-						<a href="https://meet.google.com/jkz-dhqr-hvt" target="_blank">Тестування ПЗ (лаб.)</a><br>
-						<small>Козіна Юлія Юріївна<br>
-						<a href="mailto:yuliya.kozina@keenethics.com">Email</a></small>
-					</td>
-					<td>
-						<a href="https://us02web.zoom.us/j/4725815203" target="_blank">Математичне<br>моделювання (лаб. неп.)</a><br>
-						<small>Волкова Наталія Павлівна<br>
-						<a href="https://classroom.google.com/c/NzA5NzYwODcwNjQ4?cjc=icgwfwy">Classroom</a></small>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-</main>
-<footer>
-<p>Made for UP-211</p>
-</footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-   <script src="script.js" async></script>
+    <header>
+        <nav>
+            <div class="gap"></div>
+            <div class="weeklyValue"></div>
+            <div class="date-time">
+                <div class="date"></div>
+                <div class="time"></div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>Розклад пар</h1>
+        <table>
+            <thead>
+                <tr class="day">
+                    <th>Час</th>
+                    <th></th>
+                    <th class="Monday">Понеділок</th>
+                    <th class="Tuesday">Вівторок</th>
+                    <th class="Wednesday">Середа</th>
+                    <th class="Thursday">Четвер</th>
+                    <th class="Friday">П'ятниця</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>9:50 - 11:25</td>
+                    <td>2</td>
+                    <td colspan="5">День курсового проєктування</td>
+                </tr>
+                <tr>
+                    <td>8:00 - 9:35</td>
+                    <td>1</td>
+                    <td>---</td>
+                    <td><a href="#">Системи комп'ютерного зору (лек.)</a></td>
+                    <td><a href="https://meet.google.com/jmn-yhkv-jhw" target="_blank">БДЖ та ООП (лек.)<br>Сапожнікова Н.Ю.</a></td>
+                    <td><a href="https://bit.ly/hodovychenko_zoom" target="_blank">Системи комп'ютерного зору (лек.)<br>Годовиченко М.А.</a></td>
+                    <td><a href="https://us02web.zoom.us/j/85221416507?pwd=zppxnd09brLQf8LVLMTdf9FsB9z9Ig.1" target="_blank">Проєктування інформаційних систем (лаб.)<br>Кондратьєв С.Б., Добришев Р.Є.</a></td>
+                </tr>
+                <tr>
+                    <td>9:50 - 11:25</td>
+                    <td>2</td>
+                    <td>---</td>
+                    <td><a href="https://bit.ly/hodovychenko_zoom" target="_blank">Системи комп'ютерного зору (лаб.)<br>Годовиченко М.А.</a></td>
+                    <td><a href="https://us02web.zoom.us/j/84048195235?pwd=YWh3Q0dsNWx6WWtLZXlNNjR5VUN2UT09" target="_blank">Управління ІТ-проєктами (лек.)<br>Тесленко П.О.</a></td>
+                    <td><a href="https://meet.google.com/jow-rodn-rfd" target="_blank">Управління ІТ-проєктами (лек.)<br>Тесленко П.О., Журан О.А.</a></td>
+                    <td><a href="https://bit.ly/hodovychenko_zoom" target="_blank">Системи комп'ютерного зору (лаб.)<br>Годовиченко М.А.</a></td>
+                </tr>
+                <tr>
+                    <td>11:40 - 13:15</td>
+                    <td>3</td>
+                    <td>---</td>
+                    <td><a href="https://us05web.zoom.us/j/5223675929?pwd=SitkZWcvTUVOQVpHNDRheVozelJxQT09&omn=88035287019" target="_blank">БДЖ та ООП (лаб.)<br>Пуріч В.М.</a></td>
+                    <td>---</td>
+                    <td>---</td>
+                    <td>---</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>Made for UP-211</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="script.js" async></script>
 </body>
 </html>
